@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: performance-analytics-platform
+  datasource:
+    url: jdbc:postgresql://localhost:5432/performance_analytics
+    username: pap
+    password: local_dev_only
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
