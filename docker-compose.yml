@@ -6,7 +6,7 @@ services:
       POSTGRES_DB: performance_analytics
       POSTGRES_USER: pap
       POSTGRES_PASSWORD: local_dev_only
-    ports: ["5432:5432"]
+    ports: ["5433:5432"]
     volumes: ["pap-pgdata:/var/lib/postgresql/data"]
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U pap -d performance_analytics"]
