@@ -17,7 +17,7 @@ Conceptually inspired by tools like Strava, but scoped specifically to showcase 
 - [Running Tests](#running-tests)
 
 ---
-
+test
 ## Vision
 
 The long-term goal is a system that could realistically evolve into a SaaS product: a user tracks workouts, body metrics, and cardio sessions over time, and the platform surfaces trends, personal records, plateaus, and (eventually) predictions.
