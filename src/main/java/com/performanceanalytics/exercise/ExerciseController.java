@@ -1,10 +1,10 @@
 package com.performanceanalytics.exercise;
 
 
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,9 +27,11 @@ public class ExerciseController {
     // enforce (I.e. validating uniqueness before a POST) and at that point
     // an ExerciseService gets introduced
     private final ExerciseRepository exerciseRepository;
+    private final ExerciseService exerciseService;
 
-    public ExerciseController(ExerciseRepository exerciseRepository) {
+    public ExerciseController(ExerciseRepository exerciseRepository, ExerciseService exerciseService) {
         this.exerciseRepository = exerciseRepository;
+        this.exerciseService = exerciseService;
     }
 
     // @GetMapping with no path = handles GET requests to exactly the
@@ -50,6 +52,16 @@ public class ExerciseController {
         // Found, etc.
         return ResponseEntity.ok(exercises);
     }
+
+    // Create new Exercise entity
+    @PostMapping
+    public ResponseEntity<ExerciseResponse> createExercise(@Valid @RequestBody ExerciseCreateRequest request) {
+        Exercise created = exerciseService.createExercise(request);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(ExerciseResponse.from(created));
+    }
+
+
 
 
 }
