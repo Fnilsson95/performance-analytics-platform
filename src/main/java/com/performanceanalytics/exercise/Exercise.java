@@ -2,8 +2,6 @@ package com.performanceanalytics.exercise;
 
 import jakarta.persistence.*;
 import java.time.Instant;
-import java.util.Objects;
-
 
 @Entity
 @Table(name = "exercise") // Explicitly name the table and not from the class name
