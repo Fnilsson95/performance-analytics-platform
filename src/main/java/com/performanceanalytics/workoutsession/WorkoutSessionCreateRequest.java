@@ -1,4 +1,15 @@
 package com.performanceanalytics.workoutsession;
 
-public record WorkoutSessionCreateRequest() {
+import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDate;
+
+public record WorkoutSessionCreateRequest(
+
+        @NotNull
+        LocalDate sessionDate,
+
+        // Optional: no constraint needed
+        String notes
+) {
 }
